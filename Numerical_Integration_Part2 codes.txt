@@ -4,6 +4,14 @@ Created on Wed Nov 21 16:17:52 2018
 
 @author: Tony Zhu
 """
+"""
+Part 2 
+According to the Big Bang model of the universe, the age of the universe is given by the integral 
+ 
+where t0 is called the Hubble time, t0 = 13.4 Gyr. Ωm is the matter density parameter, and ΩΛ is the dark-energy density parameter. Write a program that takes Ωm and ΩΛ as inputs and computes the age of the universe. What is the age of the universe given the following conditions? 
+Ωm 0.04 1.0 0.3 0.3 0.3 0.3
+ΩΛ 0.0  0.0 0.0 0.7 1.4 0.35
+
 #import relevant libraries
 import numpy as np
 from scipy.integrate import quad
