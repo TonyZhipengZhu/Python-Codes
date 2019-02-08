@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 15 01:44:11 2018
+
+@author: Tony Zhu
+"""
+
+#import libraries
+import numpy as np
+
+#define the matrices sx and sz
+sx = np.array([[0,np.sqrt(3)/2,0,0],
+              [np.sqrt(3)/2,0,1,0],
+              [0,1,0,np.sqrt(3)/2],
+              [0,0,np.sqrt(3)/2,0]])
+
+sz = np.array([[3/2,0,0,0],
+              [0,1/2,0,0],
+              [0,0,-1/2,0],
+              [0,0,0,-3/2]])
+
+#compute commutator of sx and sz
+commutator=sx@sz-sz@sx
+print("commutator=", commutator)

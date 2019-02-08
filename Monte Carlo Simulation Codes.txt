@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec 14 22:58:24 2018
+
+@author: Tony Zhu
+"""
+#import libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from numpy.random import rand
+
+#creat the array of various N totals, and an empty array of estimated pi values
+total_number_of_points=[10,100,1000,10000,100000,1000000,10000000]
+pi_list=[]
+
+#for different N-totals, create that number of random vectors between 0 and 1. 
+for i in total_number_of_points:
+    points_inside=0
+    coordinates=rand(i,2)
+    #loop each random vector, if it's inside the quarter-circle, then add 1 to "points_inside"
+    for j in coordinates:
+        if (j[0]**2+j[1]**2) < 1:
+            points_inside=points_inside+1
+    #Estimate pi for each N total, and add it to a list        
+    pi=4*(points_inside/i)
+    pi_list.append(pi)
+    
+
+#plot the results using semilogx
+actual_pi=[np.pi,np.pi,np.pi,np.pi,np.pi,np.pi,np.pi]
+plt.semilogx(total_number_of_points,pi_list,'ro',label="estimated value")
+plt.semilogx(total_number_of_points,actual_pi,label="actual pi value")
+plt.xlabel("total number of points")
+plt.ylabel("estimated pi value")
+plt.title("estimated pi versus N-total")
+plt.legend()
+plt.show()
+
+    
+    
+            
+            

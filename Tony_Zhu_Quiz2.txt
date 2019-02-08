@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep 10 22:17:11 2018
+
+@author: Tony Zhu
+"""
+
+#import library
+import numpy as np
+from astropy.table import Table, Column
+import math
+
+#create empty lists, which will be later converted toeach column of the table
+list_name=[]
+list_a=[]
+list_p=[]
+list_m=[]
+
+#define some constants
+pi=math.pi
+G=6.67E-11
+
+
+#create loop for the documentation and calculation of each exoplanet
+while True:
+    #define planet name from keyboard input
+    planetName = input("name of the exsoplanet(type 'quit' if you want to end): ")
+    
+    #break from the input "quit"
+    if planetName == "quit":
+        break
+        
+    #define a and p from keyboard input
+    semimajorAxis = float(input("the semimajor axis(AU):"))
+    period = float(input("period(days): "))
+    
+    #calculate mass
+    mass=(4*pi**2*(semimajorAxis*1.496E+11)**3/(G*(period*3600*24)**2))/(1.989E+30)
+    
+    #add elements to each list
+    list_name.append(planetName)
+    list_a.append(semimajorAxis)
+    list_p.append(period)
+    list_m.append(mass)
+    
+#after break, convert each list to array, which can be used to create columns of the table   
+list_name = np.array(list_name)
+list_a=np.array(list_a)
+list_p=np.array(list_p)
+list_m=np.array(list_m)
+
+#create a table from each column, with the categories of the columns on top
+t = Table([list_name,list_a,list_p,list_m], names=('exoplanet', 'semimajor', 'period','mass(solar mass)'))
+
+#create output
+print(t)
+
+
+
+
+
+
+
+
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+

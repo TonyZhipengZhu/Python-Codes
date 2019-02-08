@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 21 16:17:52 2018
+
+@author: Tony Zhu
+"""
+#import relevant libraries
+import numpy as np
+from scipy.integrate import quad
+from astropy.table import Table, Column
+
+#define function to be integrated
+def func(a):
+    return 13.4*(10**9)*((M*(a**(-1))+A*a**2+(1-M-A))**(-0.5))
+
+#create empty lists, which will be later converted toeach column of the table
+list_M=[]
+list_A=[]
+list_age=[]
+
+while True:
+    #define matter density parameter from keyboard input
+    M = float(input("the matter density parameter(type 100 if you wanna quit): "))
+    #break from the input "100"
+    if M == 100 :
+        break
+    #define dark-energy density parameter from keyboard input
+    A = float(input("the dark-energy density parameter:"))
+    #compute the age of the universe by integration
+    t=quad(func,0,1)
+    #add elements to the lists
+    list_M.append(M)
+    list_A.append(A)
+    list_age.append(t[0])
+    #print age of the universe for a specific input
+    print("the age of the universe is",t[0]*10**(-9),"Gyrs")
+    
+#after break, convert each list to array, which can be used to create columns of the table   
+list_M = np.array(list_M)
+list_A=np.array(list_A)
+list_age=np.array(list_age)
+
+#create a table for all values
+table = Table([list_M,list_A,list_age], names=('matter density', 'dark-energy density', 'age(Gyrs)'))
+#print the table
+print(table)
+
+
+
+

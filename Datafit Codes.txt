@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec  5 16:08:49 2018
+
+@author: Tony Zhu
+"""
+#import libraries
+from scipy.optimize import curve_fit
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import chi2
+
+#create the arrays using the data
+t=np.array([0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5])
+N=np.array([1022,709,620,417,324,238,196,156,94,94])
+
+#compute uncertainties
+uncertainty=1/(np.sqrt(N))
+
+
+#take logarithm of number of counts
+N_log=np.log(N)
+
+#define the function to fit
+def func(x,a0,a1):
+    return a0 + a1*x
+
+#curve fit (linear fit in this case)
+a_fit,cov=curve_fit(func,t,N_log,sigma=uncertainty)
+
+#print the best-fit parameters
+print("a0=",a_fit[0],"a1=",a_fit[1])
+
+#define the best-fit line
+k=a_fit[1]
+b=a_fit[0]
+line=k*t+b
+
+#compute the uncertainty of half-life
+uncertainty_slope=np.sqrt(cov[1][1])
+uncertainty_half_life=np.log(2)*uncertainty_slope/(k**2)
+
+
+#compute and print half-life
+tau=1/(-a_fit[1])
+half_life=tau*np.log(2)
+print("half life(min)=",half_life)
+print("uncertainty of half-life is", uncertainty_half_life)
+
+#plot the data,error bars,and the best-fit line
+plt.plot(t,N_log,'r+',label="logarithmic plot")
+plt.plot(t,line,'k-',label="linear fit")
+plt.xlabel('t')
+plt.ylabel('N_log')
+plt.legend()
+plt.errorbar(t, N_log, yerr=uncertainty,fmt='ro')
+plt.show()
+
+#compute Chi-square value and goodness-of-fit parameter
+chisqr = sum((N_log-func(t,a_fit[0],a_fit[1]))**2/uncertainty**2)
+dof = 10 - 2
+GOF = 1. - chi2.cdf(chisqr,dof)
+print("chisqr=",chisqr)
+print("GOF=",GOF)
+
+
+
+

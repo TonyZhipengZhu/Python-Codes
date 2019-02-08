@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 15 01:36:53 2018
+
+@author: Tony Zhu
+"""
+#import libraries
+import numpy as np
+import scipy.linalg as la
+
+#define the matrix sx
+sx = np.array([[0,np.sqrt(3)/2,0,0],
+              [np.sqrt(3)/2,0,1,0],
+              [0,1,0,np.sqrt(3)/2],
+              [0,0,np.sqrt(3)/2,0]])
+
+#calculate eigenvalues
+e_val,e_vec = la.eig(sx)
+print('The eigenvalues are:',e_val)
+
+#calculate eigenvector for each eigenvalue
+for idx in range(len(e_val)):
+    value = e_val[idx]
+    vector = e_vec[:,idx]
+    print(f'For the eigenvalue {value}, the eigenvector is {vector}.')

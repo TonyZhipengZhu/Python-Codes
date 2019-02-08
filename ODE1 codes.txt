@@ -1,0 +1,82 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Nov 23 13:33:51 2018
+
+@author: Tony Zhu
+"""
+
+
+
+## Import needed modules
+import numpy as np
+from pylab import *
+import scipy.constants as pc
+
+## Prompt user for inputs
+
+
+tau_str = input("Size of the time steps (s): ")
+tau = float(tau_str)
+
+## Solve for y and v using Euler's method
+x_old = 0         # Set the initial values of x,y,vx,vy, and t
+y_old = 0.00001	
+Cd=0.47
+vx = np.sqrt(2)*50/2 
+vy = np.sqrt(2)*50/2 
+vx0 = np.sqrt(2)*50/2  
+vy0 = np.sqrt(2)*50/2 
+t = 0.0
+
+x_plt = array([x_old])# Create arrays to record the position, velocity,and time for plotting
+y_plt = array([y_old])	
+vx_plt = array([vx])
+vy_plt = array([vy])
+t_plt = array([t])
+vx_k_plt = array ([vx0]) #create an array for x-velovity
+
+while (y_old > 0): #create iterations
+	
+    y = y_old + vy*tau	# Euler step to compute distance
+    x = x_old + vx*tau   
+    ay = -pc.g-1.225*Cd*(np.pi)*(0.055**2)*np.sqrt(vx**2+vy**2)*vy/2/6  # Compute the acceleration from the force
+    ax = -1.225*Cd*(np.pi)*(0.055**2)*np.sqrt(vx**2+vy**2)*vx/2/6       
+    vy = vy + ay*tau    # Euler step to compute v
+    vx = vx + ax*tau
+
+    y_old = y      # set the position for the next iteration
+    x_old = x		
+    t = t + tau		# Increment the time
+
+    
+    y_plt = append(y_plt,y) # Append new points to the plotting arrays
+    x_plt = append(x_plt,x)
+      
+    t_plt = append(t_plt,t)
+    vx_k_plt = append(vx_k_plt,vx0)
+    
+#determine x distance by euler's method
+x_end_euler=x
+print("x distance(m) by euler's method(with air resistance)=",x_end_euler)
+
+
+## Use kinematic equations to compute the comparison y and v
+y_k = vy0*t_plt-pc.g*t_plt**2/2.
+x_k = vx0*t_plt
+
+#determine x distance using kinematic equation
+x_end_kinematic=vx0*t
+print("x distance(m) by kinematic equation(without air resistance)=",x_end_kinematic)
+
+## Plot 2 dimensional trajectory
+figure(1)
+clf() 
+plot(x_plt,y_plt,'r+',label="Euler's method")
+plot(x_k,y_k,'k-',label="Kinematics equations")
+legend()
+xlabel('x distance')
+ylabel('y distance')
+
+
+
+

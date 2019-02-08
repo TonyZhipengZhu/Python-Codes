@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov  7 16:33:31 2018
+
+@author: Tony Zhu
+"""
+import numpy as np
+import pylab as plt
+from scipy.integrate import quad
+
+def C(u):
+    return np.cos(0.5*np.pi*u**2)
+ 
+
+x1 = np.linspace(-10, 10, 1000, endpoint=True)
+
+CX=[]
+for x in x1:
+    C_ToBeInserted=quad(C,0,x)
+    CX.append(C_ToBeInserted[0])
+    
+
+
+def S(u):
+    return np.sin(0.5*np.pi*u**2)
+ 
+
+x2 = np.linspace(-10, 10, 1000, endpoint=True)
+
+SX=[]
+for x in x2:
+    S_ToBeInserted=quad(S,0,x)
+    SX.append(S_ToBeInserted[0])
+    
+
+plt.ylabel("S(u)")   #label y axis
+plt.xlabel("C(u)")   #label x axis
+plt.title("S(u) vs C(u)")   #create a title for the graph
+plt.plot(CX,SX)
+
+plt.show()
+
+
+
+

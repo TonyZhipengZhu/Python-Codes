@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep  3 20:20:49 2018
+
+@author: Tony Zhu
+"""
+
+from pylab import *    # import the PyLab package
+import matplotlib.pyplot as plt #import the matplotlib package
+
+x=linspace(0,230,230)    # create the x array
+y=loadtxt("Mauna.txt",usecols=(0),unpack=True)    # create the y array
+
+plt.ylabel("CO2 concentration ppm")   #label y axis
+plt.xlabel("time: number of 14-day period")   #label x axis
+plt.title("CO2 concentration over time")   #create a title for the graph
+plt.plot(x,y,label='CO2')   # plot y versus x
+
+(m,b)=np.polyfit(x,y,1)    #calculate linear regression
+
+print((m,b))    #shows the linear regression
+
+line=m*x+b      #define the line of linear regression 
+
+plt.plot(x,line,label='linearFit') #plot linear regression line
+
+plt.legend()    #shows the legend 
+
+plt.show()  #shows every plot in the same graph
+
+
+
+
+             
+
