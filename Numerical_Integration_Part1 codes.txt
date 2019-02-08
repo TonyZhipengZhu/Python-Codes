@@ -4,6 +4,13 @@ Created on Wed Nov  7 16:33:31 2018
 
 @author: Tony Zhu
 """
+"""
+Part 1 
+When studying Fresnel Diffraction one encounters two integrals 
+ 
+These two Fresnel integrals define the Cornu Spiral, which is a graph of S(u) versus C(u). These two functions have the upper limit of the integration, u, as their independent variable. Numerically integrate S(u) and C(u) for u in the range -10 < u < 10 and then plot S(u) versus C(u) to get the Cornu Spiral. 
+"""
+
 import numpy as np
 import pylab as plt
 from scipy.integrate import quad
