@@ -5,7 +5,13 @@ Created on Mon Sep 10 22:17:11 2018
 @author: Tony Zhu
 """
 """
-The goal of this programming project is to write a script that will generate a table of extrasolar planets with the planet's name, period, semimajor axis, and the mass of the planet's host star. The program should prompt the user for the name of the planet, it's semimajor axis and period. (You can find a list of extrasolar planets on the Wikipedia page listing transiting extrasolar planets.) Your script should compute the mass of the host star. The script should continue to prompt the user for names until the user types quit at the planet name prompt. The program should then print a table to the screen that includes the planet name, period in days, semimajor axis in atronomical units (1 AU = 1.50 × 1011 m), and the ratio of mass of the parent star to the mass of the sun (MSun = 1.99 × 1030 kg). The output should be neatly formated using python print() statements. The output should looks something like the example below: 
+The goal of this programming project is to write a script that will generate a table of extrasolar planets with the planet's name, period, semimajor axis, and the mass of the planet's host star. 
+The program should prompt the user for the name of the planet, it's semimajor axis and period. (You can find a list of extrasolar planets on the Wikipedia page listing transiting extrasolar planets.) 
+Your script should compute the mass of the host star. 
+The script should continue to prompt the user for names until the user types quit at the planet name prompt. 
+The program should then print a table to the screen that includes the planet name, period in days, semimajor axis in atronomical units (1 AU = 1.50 × 1011 m), and the ratio of mass of the parent star to the mass of the sun (MSun = 1.99 × 1030 kg). 
+The output should be neatly formated using python print() statements. 
+The output should looks something like the example below: 
 Exoplanet    semimajor axis (AU)    Period (days)     M (M_sun)
  Sun                1.00               365.25          1.00031
  
