@@ -4,7 +4,16 @@ Created on Sat Nov 24 18:54:18 2018
 
 @author: Tony Zhu
 """
+"""
+The Wilberforce pendulum consists of a mass suspended by a long spring. 
+The mass is free to turn about its vertical axis as well as oscillate up and down. 
+It oscillates vertically and torsionally. 
 
+Let z represent the vertical position of the mass m and θ be angle of rotation of the mass
+Write a program using odeint to solve the system of ODEs and plot z and θ on the same graph. 
+Let m = 0.5 kg, I = 1.0 × 10-4 kg m2, k = 5 N/m, κ = 1.0 × 10-3 N m, and α = 1.0 × 10-2 N. 
+Show that for these particular values of the constants the motion periodically alternates between being purely vertical and purely torsional. 
+"""
 #import libraries
 import numpy as np
 import matplotlib.pyplot as plt
