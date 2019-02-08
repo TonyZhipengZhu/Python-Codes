@@ -4,6 +4,10 @@ Created on Sat Dec 15 01:36:53 2018
 
 @author: Tony Zhu
 """
+"""
+Find the eigenvalues and eigenvectors of this matrix
+"""
+
 #import libraries
 import numpy as np
 import scipy.linalg as la
