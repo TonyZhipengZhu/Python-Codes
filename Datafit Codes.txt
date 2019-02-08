@@ -4,6 +4,23 @@ Created on Wed Dec  5 16:08:49 2018
 
 @author: Tony Zhu
 """
+"""
+The exited state of Barium-137, 137Ba*, γ decays to the stable isotope 137Ba. The decay half-life is 2.55 minutes. 
+You are given a substance and a Geiger counter and asked to determine if the material contains 137Ba*. 
+You do an experiment to count the γ-rays from the substance and get the results in the file DecayData.txt. 
+The file gives the time from the beginning of the experiment and the number of γs detected in 60-second intervals. 
+The number of detected photons is governed by Poisson statistics so the uncertainty 
+in the number of counts is equal to the square root of the number of counts. 
+
+For radioactive decay number of γs detected ΔN in the time interval Δt is ΔN = K e-t/τ, 
+where K is a constant, t is the time since the beginning of the experiment, 
+and τ is the lifetime of the radioactive substance. Write a program to fit the data in DecayData.txt. 
+What is the best-fit value for the half-life? (The half life t½ = τ ln(2)). 
+Don't forget to include uncertainties. Plot the data and the fit together. 
+Include error bars on the data points. HINT: If you take the logarithm of the equation for ΔN you can do a linear fit. 
+Given the χ2 value and the goodness-of-fit parameter, how likely is it that the substance contains 137Ba*? Explain.
+"""
+
 #import libraries
 from scipy.optimize import curve_fit
 import numpy as np
