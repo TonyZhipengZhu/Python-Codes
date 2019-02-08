@@ -4,8 +4,13 @@ Created on Fri Nov 23 13:33:51 2018
 
 @author: Tony Zhu
 """
-
-
+"""
+Modify the galileo.py program to solve the two-dimensional projectile motion problem with air resistance. 
+Assume the projectile is a 6.0 kg cannonball (radius = 5.50 cm) shot at a 45° angle with an initial speed of 50.0 m/s. 
+Use the Euler-Cromer method to numerically solve the ODEs.
+create a plot showing the trajectory of the cannonball with air resistance and the trajectory without air resistance using the two-dimensional kinematics equations. 
+What is the range of the cannonball with and without air resistance? 
+"""
 
 ## Import needed modules
 import numpy as np
