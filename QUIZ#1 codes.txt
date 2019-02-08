@@ -5,7 +5,10 @@ Created on Mon Sep  3 20:20:49 2018
 @author: Tony Zhu
 """
 """
-The text file Mauna.txt contains the CO2 concentration in parts per million (ppm) as measured in Manua Loa, Hawaii. The data were taken every 14 days, starting in 1981. Fit a straight line to the data to find the average increase in CO2 in ppm per year. Plot the data and the fit on the same plot.
+The text file Mauna.txt contains the CO2 concentration in parts per million (ppm) as measured in Manua Loa, Hawaii. 
+The data were taken every 14 days, starting in 1981. 
+Fit a straight line to the data to find the average increase in CO2 in ppm per year. 
+Plot the data and the fit on the same plot.
 """
 
 
