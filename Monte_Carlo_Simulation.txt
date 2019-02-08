@@ -4,6 +4,10 @@ Created on Fri Dec 14 22:58:24 2018
 
 @author: Tony Zhu
 """
+"""
+In this exercise you will use Monte Carlo methods to estimate the value of π
+"""
+
 #import libraries
 import numpy as np
 import matplotlib.pyplot as plt
