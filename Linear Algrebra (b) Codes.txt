@@ -4,6 +4,9 @@ Created on Sat Dec 15 01:44:11 2018
 
 @author: Tony Zhu
 """
+"""
+Find the commutator of two matrices
+"""
 
 #import libraries
 import numpy as np
